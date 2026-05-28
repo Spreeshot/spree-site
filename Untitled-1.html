@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>spree</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#000;
+      color:white;
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    body::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%),
+      url('https://www.transparenttextures.com/patterns/stardust.png');
+      opacity:0.35;
+      z-index:0;
+    }
+
+    .particles{
+      position:absolute;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      top:0;
+      left:0;
+      z-index:1;
+    }
+
+    .particles span{
+      position:absolute;
+      display:block;
+      width:2px;
+      height:2px;
+      background:white;
+      border-radius:50%;
+      opacity:0.7;
+      animation:animate 10s linear infinite;
+    }
+
+    .particles span:nth-child(1){
+      left:10%;
+      animation-delay:0s;
+      animation-duration:8s;
+    }
+
+    .particles span:nth-child(2){
+      left:20%;
+      animation-delay:2s;
+      animation-duration:12s;
+    }
+
+    .particles span:nth-child(3){
+      left:35%;
+      animation-delay:4s;
+      animation-duration:9s;
+    }
+
+    .particles span:nth-child(4){
+      left:50%;
+      animation-delay:1s;
+      animation-duration:14s;
+    }
+
+    .particles span:nth-child(5){
+      left:65%;
+      animation-delay:3s;
+      animation-duration:11s;
+    }
+
+    .particles span:nth-child(6){
+      left:80%;
+      animation-delay:5s;
+      animation-duration:13s;
+    }
+
+    .particles span:nth-child(7){
+      left:90%;
+      animation-delay:7s;
+      animation-duration:10s;
+    }
+
+    @keyframes animate{
+      0%{
+        transform:translateY(100vh) scale(0);
+        opacity:0;
+      }
+
+      50%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-10vh) scale(1.5);
+        opacity:0;
+      }
+    }
+
+    .container{
+      position:relative;
+      z-index:2;
+      width:500px;
+      text-align:center;
+      animation:fade 1.3s ease;
+    }
+
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .avatar{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid rgba(255,255,255,0.15);
+      box-shadow:
+      0 0 30px rgba(255,255,255,0.45),
+      0 0 80px rgba(255,255,255,0.12);
+      transition:0.4s ease;
+    }
+
+    .avatar:hover{
+      transform:scale(1.04);
+    }
+
+    h1{
+      margin-top:25px;
+      font-size:82px;
+      font-family:'Cinzel',serif;
+      text-shadow:
+      0 0 10px white,
+      0 0 25px rgba(255,255,255,0.8);
+    }
+
+    .bio{
+      margin-top:10px;
+      color:#b8b8b8;
+      letter-spacing:4px;
+      font-size:14px;
+    }
+
+    .line{
+      width:180px;
+      height:1px;
+      background:rgba(255,255,255,0.2);
+      margin:24px auto;
+      position:relative;
+    }
+
+    .line::after{
+      content:'✦';
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      background:black;
+      padding:0 10px;
+      color:white;
+      font-size:13px;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:22px;
+      margin-top:10px;
+    }
+
+    .socials a{
+      width:78px;
+      height:78px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.15);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      color:white;
+      font-size:34px;
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 20px rgba(255,255,255,0.08);
+      transition:0.35s ease;
+    }
+
+    .socials a:hover{
+      transform:translateY(-6px) scale(1.06);
+      box-shadow:0 0 25px rgba(255,255,255,0.3);
+    }
+
+    .social-name{
+      margin-top:10px;
+      font-size:12px;
+      letter-spacing:1px;
+      color:#9d9d9d;
+    }
+
+    .quotes{
+      margin-top:35px;
+      padding:22px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 25px rgba(255,255,255,0.04);
+      color:#d7d7d7;
+      letter-spacing:2px;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    .views{
+      margin-top:25px;
+      color:#d0d0d0;
+      font-size:15px;
+      opacity:0.75;
+      letter-spacing:2px;
+    }
+
+    .music{
+      margin-top:35px;
+      width:100%;
+      padding:18px;
+      border-radius:24px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      display:flex;
+      align-items:center;
+      gap:18px;
+      box-shadow:0 0 30px rgba(255,255,255,0.05);
+    }
+
+    .music img{
+      width:90px;
+      height:90px;
+      border-radius:18px;
+      object-fit:cover;
+    }
+
+    .music-info{
+      flex:1;
+      text-align:left;
+    }
+
+    .music-title{
+      font-size:27px;
+      font-weight:600;
+    }
+
+    .artist{
+      margin-top:3px;
+      color:#8d8d8d;
+    }
+
+    .progress{
+      width:100%;
+      height:4px;
+      background:rgba(255,255,255,0.1);
+      border-radius:20px;
+      overflow:hidden;
+      margin-top:14px;
+    }
+
+    .bar{
+      width:0%;
+      height:100%;
+      background:white;
+      animation:progress 200s linear infinite;
+    }
+
+    @keyframes progress{
+      from{
+        width:0%;
+      }
+
+      to{
+        width:100%;
+      }
+    }
+
+    .controls{
+      display:flex;
+      gap:15px;
+      font-size:26px;
+      color:white;
+    }
+
+    .controls i{
+      cursor:pointer;
+      transition:0.3s ease;
+    }
+
+    .controls i:hover{
+      transform:scale(1.1);
+    }
+
+    .volume-control{
+      position:fixed;
+      left:20px;
+      bottom:20px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      z-index:999;
+      background:rgba(0,0,0,0.45);
+      padding:10px 14px;
+      border-radius:14px;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .volume-control i{
+      color:white;
+      font-size:15px;
+    }
+
+    .volume-control input{
+      width:90px;
+      accent-color:white;
+      cursor:pointer;
+    }
+
+    @media(max-width:600px){
+
+      .container{
+        width:92%;
+      }
+
+      h1{
+        font-size:58px;
+      }
+
+      .socials{
+        gap:12px;
+      }
+
+      .socials a{
+        width:62px;
+        height:62px;
+        font-size:28px;
+      }
+
+      .music-title{
+        font-size:20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="volume-control">
+
+    <i class="fa-solid fa-volume-low"></i>
+
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.15"
+      id="volumeSlider"
+    >
+
+  </div>
+
+  <audio id="bgmusic" loop>
+    <source src="blackbear.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+
+    <img class="avatar" src="damon.jpg" alt="avatar">
+
+    <h1>SPREE</h1>
+
+    <div class="bio">
+      Honored One
+    </div>
+
+    <div class="line"></div>
+
+    <div class="socials">
+
+      <div>
+        <a href="https://x.com/Spreeshot_" target="_blank">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <div class="social-name">TWITTER</div>
+      </div>
+
+      <div>
+        <a href="https://www.instagram.com/isaque.v1" target="_blank">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <div class="social-name">INSTAGRAM</div>
+      </div>
+
+      <div>
+        <a href="https://www.twitch.tv/spreesh0t" target="_blank">
+          <i class="fa-brands fa-twitch"></i>
+        </a>
+        <div class="social-name">TWITCH</div>
+      </div>
+
+      <div>
+        <a href="https://open.spotify.com/user/314ippqubbumxvayxmywbxrsvihm" target="_blank">
+          <i class="fa-brands fa-spotify"></i>
+        </a>
+        <div class="social-name">SPOTIFY</div>
+      </div>
+
+    </div>
+
+    <div class="quotes">
+      “ Brave The Shadows.<br>
+      Find The Truth. ”
+    </div>
+
+    <div class="views">
+      <i class="fa-solid fa-eye"></i>
+      587
+    </div>
+
+    <div class="music">
+
+      <img src="music.jpg" alt="music">
+
+      <div class="music-info">
+
+        <div class="music-title">
+          fvck you
+        </div>
+
+        <div class="artist">
+          blackbear
+        </div>
+
+        <div class="progress">
+          <div class="bar"></div>
+        </div>
+
+      </div>
+
+      <div class="controls">
+        <i class="fa-solid fa-backward"></i>
+        <i class="fa-solid fa-circle-pause"></i>
+        <i class="fa-solid fa-forward"></i>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const music = document.getElementById('bgmusic');
+    const slider = document.getElementById('volumeSlider');
+
+    music.volume = slider.value;
+
+    slider.addEventListener('input', () => {
+      music.volume = slider.value;
+    });
+
+    window.addEventListener('click', () => {
+      music.play();
+    }, { once: true });
+
+  </script>
+
+</body>
+</html>
